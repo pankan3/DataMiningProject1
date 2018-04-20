@@ -7,7 +7,7 @@ This is a temporary script file.
 from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 from os import path
 from sklearn import preprocessing
-from sklearn.ensemble import RandomForestClassifier
+from sklearn import svm
 from sklearn import metrics
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.decomposition import TruncatedSVD
@@ -50,7 +50,7 @@ svd = TruncatedSVD(n_components=107)
 X_train = svd.fit_transform(X_train)
 '''
 
-clf = RandomForestClassifier(n_estimators= 1000, max_depth = 1000)
+clf = svm.SVC(kernel='linear', C=1.0)
 y_predict = cross_val_predict(clf,X_train,y_train,cv=10)
 
 
